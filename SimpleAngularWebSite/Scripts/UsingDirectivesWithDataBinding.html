@@ -6,28 +6,48 @@
 </head>
 <body>
     <div>
+
+        <div data-ng-controller="SimpleController" class="container">            
+            Name:
+            <br />
+            <input type="text" name="name" data-ng-model="name" />
+            <br />
+            <ul>
+                <li data-ng-repeat="cust in customers | filter:name | orderBy:'name'">
+                    {{cust.name}} - {{cust.city}}
+                </li>
+            </ul>
+        </div>
+
+
         <!--Placeholder for views-->
-        <div data-ng-view></div>
+        <!--<div data-ng-view></div>-->
     </div>
-    <script src="angular.min.js"></script>
+    <script src="angular.min.js"></script>    
 
     <script>
-        var demoApp = angular.module('demoApp', ['ngRoute']);
+        var demoApp = angular.module('demoApp', []);
 
-        demoApp.config(function ($routeProvider) {
-            $routeProvider
-                .when('/view1',
-                {
-                    controller: 'SimpleController',
-                    templateUrl: 'Partials/View1.html'
-                })
-                .when('/View2',
-                {
-                    controller: 'SimpleController',
-                    templateUrl: 'Partials/View2.html'
-                })
-                .otherwise({ redirectTo: '/view1' });
-        });
+        //demoApp.config(function ($routeProvider) {
+
+        //    $routeProvider.when('/', {
+        //        controller: 'SimpleController',
+        //        templateUrl: 'Partials/View1.html'
+        //    });
+
+        //    //$routeProvider
+        //    //    .when('/view1',
+        //    //    {
+        //    //        controller: 'SimpleController',
+        //    //        templateUrl: 'Partials/View1.html'
+        //    //    })
+        //    //    .when('/View2',
+        //    //    {
+        //    //        controller: 'SimpleController',
+        //    //        templateUrl: 'Partials/View2.html'
+        //    //    })
+        //    //    .otherwise({ redirectTo: '/view1' });
+        //});
 
         demoApp.controller('SimpleController', function ($scope) {
             $scope.customers = [
