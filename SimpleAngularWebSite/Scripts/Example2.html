@@ -20,27 +20,9 @@
         </div>
     </div>
     <script src="angular.min.js"></script>
-    <script src="angular-route.min.js"></script>
+
     <script>
-        //var demoApp = angular.module('demoApp', []);
-        var app = angular.module('customersApp', ['ngRoute']);
-
-        https://www.youtube.com/watch?v=i9MHigUZKEM  min 44
-
-        demoApp.config(function ($routeProvider) {
-            $routeProvider
-                .when('/View1',
-                {
-                    controller: 'SimpleController',
-                    templateUrl: 'View1.html'
-                })
-                .when('/View2',
-                {
-                    controller: 'SimpleController',
-                    templateUrl: 'View2.html'
-                })
-                .otherwise({ redirectTo: '/View1' });
-        });
+        var demoApp = angular.module('demoApp', []);
 
         demoApp.controller('SimpleController', function SimpleController($scope) {
             $scope.customers = [
